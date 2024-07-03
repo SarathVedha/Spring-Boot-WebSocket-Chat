@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <title>App</title>
+</head>
+<body>
+
+<h2>Spring boot & Websocket | By Vedha</h2>
+
+<div class="user-form" id="username-page">
+    <h2>Enter Chatroom</h2>
+    <form id="usernameForm">
+        <label for="nickname">Nickname:</label>
+        <input id="nickname" name="nickname" required type="text">
+
+        <label for="fullName">Real Name:</label>
+        <input id="fullName" name="fullName" required type="text">
+
+        <button type="submit">Enter Chatroom</button>
+    </form>
+</div>
+
+<div class="chat-container hidden" id="chat-page">
+    <div class="users-list">
+        <div class="users-list-container">
+            <h2>Online Users</h2>
+            <ul id="connectedUsers">
+            </ul>
+        </div>
+        <div>
+            <p id="connected-user-fullName"></p>
+            <a class="logout" id="logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="chat-area">
+        <div class="chat-area" id="chat-messages">
+        </div>
+
+        <form class="hidden" id="messageForm" name="messageForm">
+            <div class="message-input">
+                <label for="message"></label><input autocomplete="off" id="message" placeholder="Type your message..."
+                                                    type="text">
+                <button>Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>-->
+<script src="webjars/jquery/3.7.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+<script src="webjars/sockjs-client/1.5.1/sockjs.min.js"></script>
+<script src="webjars/stomp-websocket/2.3.4/stomp.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

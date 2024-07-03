@@ -1,0 +1,38 @@
+version: "3.8"
+
+networks:
+  bridge-net:
+    name: mongodb-net
+
+services:
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data
+    networks:
+      - mongodb-net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: always
+    ports:
+      - "8081:8081"
+    networks:
+      - mongodb-net
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: admin
+      ME_CONFIG_MONGODB_SERVER: mongodb
+
+volumes:
+  mongodb-data:
+    name: mongodb-data
